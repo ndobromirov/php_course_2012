@@ -6,9 +6,9 @@
  * @property string $title
  * @author nikolay
  */
-class Book 
+class Book extends Component
 {
-    private $author, $title;
+    private $_author, $_title;
     
     public function __construct($author, $title) 
     {
@@ -16,14 +16,40 @@ class Book
         $this->title = $title;
     }
     
-    public function __get($name) 
+    public function getAuthor()
     {
-        return $this->$name;
+        return $this->_author;
     }
     
-    public function __set($name, $value) 
+    public function setAuthor($author)
     {
-        return $this->$name = $value;
+        return $this->_author = $author;
+    }
+    
+    public function getTitle()
+    {
+        return $this->_title;
+    }
+    
+    public function setTitle($title)
+    {
+        return $this->_title = $title;
+    }
+    
+    public function __toString() 
+    {
+        return "'$this->title' by $this->author";
+    }
+    
+    /**
+     * Checks wether the book is the same as the givven one.
+     *
+     * @param Book $book
+     * @return boolean True when the books are the same.
+     */
+    public function equals($book)
+    {
+        return $this->author == $book->author && $this->title == $book->title;
     }
 }
 

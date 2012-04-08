@@ -5,7 +5,7 @@
  *
  * @author nikolay
  */
-class BookAdapter 
+class BookAdapter extends Component
 {
     /** @var Book */
     private $book;
@@ -25,7 +25,7 @@ class BookAdapter
      */
     public function getAuthorAndTitle() 
     {
-        return "`{$this->book->title}` by {$this->book->author}";
+        return $this->book->__toString();
     }
 }
 

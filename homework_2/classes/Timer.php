@@ -62,8 +62,8 @@ class Timer
         foreach($this->times as $idx => $timePoint)
         {
             if(!$idx) continue;
-            
-            echo "{$timePoint['time']} seconds to {$timePoint['name']}<br />";
+            $time = round($timePoint['time'], 4);
+            echo "$time seconds to {$timePoint['name']}<br />";
         }
     }
     
