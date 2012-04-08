@@ -28,9 +28,14 @@ class Timer
         $this->newTimePoint('start');
     }
     
-    private function __clone() 
+    public function __clone() 
     {
-        trigger_error('Colning of class'.__CLASS__.' is not prohibited!', E_USER_ERROR);
+        trigger_error('Colning of class'.__CLASS__.' is prohibited!', E_USER_ERROR);
+    }
+    
+    public function __wakeup() 
+    {
+        trigger_error('Unserializing of class'.__CLASS__.' is prohibited!', E_USER_ERROR);
     }
     
     
